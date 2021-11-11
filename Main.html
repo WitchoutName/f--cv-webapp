@@ -4,17 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${Title}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         /* Sticky footer styles */
         html {
             position: relative;
             min-height: 100%;
         }
+
         body {
             /* Margin bottom by footer height */
             margin-bottom: 60px;
         }
+
         .footer {
             position: absolute;
             bottom: 0;
@@ -23,24 +27,75 @@
             height: 60px;
             background-color: #f5f5f5;
         }
+
         .container .text-muted {
             margin: 20px 0;
-            
         }
-        .form-radio>div>label {
+
+        .form-radio > div > label {
             margin-left: 10px;
         }
-        .form-radio > div > label > input {
-            margin-right: 3px;
-        }
+
+            .form-radio > div > label > input {
+                margin-right: 3px;
+            }
+
         .form-radio > div :first-child {
             margin-left: 0px;
         }
 
-        .form-checkBox > input {
-            margin-left: 3px;
+        .form-checkBox {
+            margin-left: 10px;
         }
 
+            .form-checkBox > input {
+                margin-right: 3px;
+            }
+
+        .form-input {
+            margin-left: 10px;
+            width: 70px;
+        }
+
+        .file-input {
+            margin-left: 10px;
+            width: 300px;
+        }
+
+        .ml-5 {
+            margin-left: 5px;
+        }
+
+        .ml-10 {
+            margin-left: 10px;
+        }
+
+        .ml-15 {
+            margin-left: 15px;
+        }
+
+        label {
+            font-weight: normal;
+        }
+
+        .flex-start {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .fai-st{
+            align-items: flex-start;
+        }
+
+        .disabled {
+            opacity: 0.5;
+        }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -60,8 +115,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="http://websharper.com">somelink.com</a></li>
                 </ul>
-            </div>--><!--/.nav-collapse -->
-        <!--</div>
+            </div>-->
+    <!--/.nav-collapse -->
+    <!--</div>
     </nav>-->
     <div class="container">
         <div ws-replace="Body">
@@ -91,6 +147,20 @@
             </p>
         </div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script ws-replace="scripts"></script>
+    <script>
+        $(document).ready(function () {
+            $("#setIndexes").click(() => {
+                if ($("#setIndexes").is(':checked')) {
+                    $("#indexes").find("label").attr("class", "ml-15")
+                    $("#indexes").find("input").attr("disabled", false)
+                } else {
+                    $("#indexes").find("label").attr("class", "ml-15 disabled")
+                    $("#indexes").find("input").attr("disabled", true)
+                }
+            })
+        })
+    </script>
 </body>
 </html>
